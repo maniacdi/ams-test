@@ -1,0 +1,10 @@
+@import 'styles/variables';
+.header {
+  background-color: $backgrounds;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: $primary-color;
+}

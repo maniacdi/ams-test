@@ -1,13 +1,13 @@
-import './App.scss';
+import React from 'react';
+import Header from './components/header/Header';
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>Cabeza marica</p>
-      </header>
+    <div>
+      <Header />
+      {/* other components and content */}
     </div>
   );
-}
+};
 
 export default App;
