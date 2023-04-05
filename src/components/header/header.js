@@ -1,9 +1,14 @@
+import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import './Header.scss';
 const Header = () => {
   return (
     <div className='header'>
-      <h1>E-commerce Site</h1>
+      <Link to='/'>
+        <h1 className='logo'>¥E-com</h1>
+      </Link>
+      <Link to='/'>Home</Link>
+      <Link to='/items'>Items</Link>
       <FaShoppingCart className='icon cart' />
     </div>
   );
