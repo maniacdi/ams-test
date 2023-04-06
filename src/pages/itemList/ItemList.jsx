@@ -7,17 +7,20 @@ import './ItemList.scss';
 const ItemList = () => {
   const { products, loading, error } = useItems();
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(12);
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
+    setCurrentPage(1);
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='item-list-page'>Loading products...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className='item-list-page'>Error: {error}</div>;
   }
 
   // Filter products based on the search term
@@ -31,15 +34,29 @@ const ItemList = () => {
     return brandMatches || modelMatches;
   });
 
+  // Pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className='item-list-page'>
       <div className='item-search'>
         <Search handleSearch={handleSearch} />
       </div>
       <div className='item-list'>
-        {filteredProducts.map((product) => (
+        {currentItems.map((product) => (
           <div className='item-wrapper' key={product.id}>
             <Item
+              id={product.id}
               brand={product.brand}
               model={product.model}
               price={product.price}
@@ -47,6 +64,27 @@ const ItemList = () => {
             />
           </div>
         ))}
+      </div>
+      <div className='pagination'>
+        {Array.from({ length: totalPages }).map((_, index) => {
+          if (
+            index === 0 ||
+            index === totalPages - 1 ||
+            (index >= currentPage - 2 && index <= currentPage + 2)
+          ) {
+            return (
+              <button
+                key={index}
+                className={currentPage === index + 1 ? 'active' : ''}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            );
+          } else if (index === currentPage - 3 || index === currentPage + 3) {
+            return <span key={index}>...</span>;
+          }
+        })}
       </div>
     </div>
   );

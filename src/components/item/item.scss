@@ -1,0 +1,47 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  min-width: 200px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    max-width: 150px;
+    margin-bottom: 10px;
+  }
+
+  .item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .brand {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .model {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      color: #3d3d3d;
+      margin-top: 10px;
+
+      &:before {
+        content: '€';
+        margin-right: 5px;
+      }
+    }
+  }
+}

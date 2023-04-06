@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { BiSearchAlt } from 'react-icons/bi';
+import './Search.scss';
 const Search = ({ handleSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -15,9 +16,12 @@ const Search = ({ handleSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='search'>Search by brand or model:</label>
+    <form onSubmit={handleSubmit} className='search-form'>
+      <label htmlFor='search' className='search-label'>
+        <BiSearchAlt className='search-icon' />
+      </label>
       <input
+        className='search-input'
         type='text'
         id='search'
         value={searchTerm}
