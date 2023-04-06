@@ -1,0 +1,35 @@
+.item-list-page {
+  margin-top: 150px;
+
+  .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .item-wrapper {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .item-wrapper {
+      width: 33.33%;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .item-wrapper {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .item-wrapper {
+      width: 100%;
+      margin: auto;
+    }
+  }
+}

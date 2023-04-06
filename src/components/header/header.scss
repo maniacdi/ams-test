@@ -1,26 +1,93 @@
 @import 'styles/variables';
 .header {
   background-color: $backgrounds;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  color: $primary-color;
-  a {
-    color: $primary-color;
-    text-decoration: none;
-  }
-  .icon {
-    height: 40px;
-    width: 40px;
-  }
-  .logo {
-    color: $primary-color;
-    margin-left: 20%;
-    width: max-content;
-    font-size: 60px;
-  }
-  .cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  .header__logo {
     position: absolute;
-    right: 70px;
+    left: 25px;
+    width: max-content;
+    height: auto;
+    color: $primary-color;
+  }
+  .header__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    .header__item {
+      margin-right: 1rem;
+
+      a {
+        color: $white-color;
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+          color: $primary-color;
+
+          &::before {
+            width: 100%;
+          }
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0%;
+          height: 2px;
+          background-color: $primary-color;
+          transition: width 0.3s ease;
+        }
+      }
+
+      &.active a {
+        color: $primary-color;
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .header_right {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    .icon {
+      height: 20px;
+      width: 20px;
+      color: $primary-color;
+      cursor: pointer;
+    }
+    .logout {
+      margin-left: 15px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .header__list {
+      height: auto;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 65px;
+      .header__item {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        &:first-child {
+          display: none;
+        }
+        a {
+          display: block;
+          padding: 0.5rem;
+        }
+      }
+    }
   }
 }

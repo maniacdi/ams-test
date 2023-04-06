@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const useItems = () => {
-  const [products, setProducts] = useState([]);
+const useItemDetail = (id) => {
+  const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -9,11 +9,10 @@ const useItems = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://itx-frontend-test.onrender.com/api/product'
+          `https://itx-frontend-test.onrender.com/api/product/${id}`
         );
         const data = await response.json();
-
-        setProducts(data);
+        setProduct(data);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -22,8 +21,9 @@ const useItems = () => {
     };
 
     fetchData();
-  }, []);
-  return { products, loading, error };
+  }, [id]);
+
+  return { product, loading, error };
 };
 
-export default useItems;
+export default useItemDetail;
