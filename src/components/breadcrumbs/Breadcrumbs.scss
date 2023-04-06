@@ -1,0 +1,12 @@
+@import 'styles/variables';
+.breadcrumbs {
+  margin: 120px 5% 0;
+  display: flex;
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+  .breadcrumbs-greater {
+    margin: 0 5px;
+  }
+}

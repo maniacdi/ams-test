@@ -23,7 +23,7 @@ const Header = ({ handleLogout }) => {
         <li
           className={`header__item ${activeLink === '/items' ? 'active' : ''}`}
         >
-          <Link to='/items'>Products</Link>
+          <Link to='/products'>Products</Link>
         </li>
       </ul>
       <div className='header_right'>

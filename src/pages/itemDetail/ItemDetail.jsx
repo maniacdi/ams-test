@@ -42,6 +42,7 @@ const ItemDetail = () => {
   if (error) {
     return <div className='item-detail-page'>Error: {error}</div>;
   }
+  console.log(product);
   return (
     <div className='item-detail-page' data-testid='item-detail'>
       <div className='item-image'>
@@ -51,29 +52,52 @@ const ItemDetail = () => {
         <div className='item-brand'>{product.brand}</div>
         <div className='item-model'>{product.model}</div>
         <div className='item-price'>{product.price} €</div>
+        <div className='item-description-label'>Description</div>
         {product.cpu && <div className='item-cpu'>CPU: {product.cpu}</div>}
         {product.ram && <div className='item-ram'>RAM: {product.ram} GB</div>}
-        {product.os && (
-          <div className='item-os'>Sistema Operativo: {product.os}</div>
-        )}
-        {product.screen && (
+        {product.os && <div className='item-os'>OS: {product.os}</div>}
+        {product.displayResolution && (
           <div className='item-screen'>
-            Resolución de pantalla: {product.screen}
+            Display resolution: {product.displayResolution}
           </div>
         )}
         {product.battery && (
-          <div className='item-battery'>Batería: {product.battery} mAh</div>
+          <div className='item-battery'>Battery: {product.battery} </div>
         )}
-        {product.cameras && (
-          <div className='item-cameras'>Cámaras: {product.cameras}</div>
-        )}
-        {product.dimensions && (
-          <div className='item-dimensions'>
-            Dimensiones: {product.dimensions}
+        {product.primaryCamera && (
+          <div className='item-cameras'>
+            Camera:{' '}
+            {product.primaryCamera.map((camera, index) => (
+              <span key={index}>
+                {camera}
+                {index !== product.primaryCamera.length - 1 && ', '}
+              </span>
+            ))}
           </div>
         )}
+        {Array.isArray(product.secondaryCmera) &&
+        product.secondaryCmera.length > 0 ? (
+          <div className='item-cameras'>
+            Secondary camera:{' '}
+            {product.secondaryCmera.map((camera, index) => (
+              <span key={index}>
+                {camera}
+                {index !== product.secondaryCmera.length - 1 && ', '}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <div className='item-cameras'>
+            Secondary camera:{' '}
+            {product.secondaryCmera && <span>{product.secondaryCmera}</span>}
+          </div>
+        )}
+
+        {product.dimensions && (
+          <div className='item-dimensions'>Size: {product.dimensions}</div>
+        )}
         {product.weight && (
-          <div className='item-weight'>Peso: {product.weight} g</div>
+          <div className='item-weight'>Weight: {product.weight} g</div>
         )}
         <div className='item-options'>
           <div className='item-option'>

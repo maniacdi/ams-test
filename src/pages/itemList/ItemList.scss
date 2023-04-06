@@ -1,9 +1,38 @@
 .item-list-page {
-  margin: 150px 5%;
+  margin: 100px 5%;
+  min-height: 90vh;
+  .item-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin: 0 5%;
+    .item-search {
+      margin-right: 1rem;
+    }
 
-  .item-search {
-    margin-left: 80%;
-    margin-bottom: 20px;
+    .sort-dropdown {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+
+      label {
+        margin-right: 0.5rem;
+      }
+
+      select {
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+          border-color: #0077ff;
+        }
+      }
+    }
   }
 
   .item-list {

@@ -10,7 +10,7 @@ const Item = ({ id, brand, model, price, imgUrl }) => {
         <div className='item-details'>
           <span className='brand'>{brand}</span>
           <span className='model'>{model}</span>
-          <span className='price'>{price}</span>
+          <span className='price'>{price ? price : 0}</span>
         </div>
       </Link>
     </div>

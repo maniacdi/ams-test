@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 150px auto;
+  margin: 100px auto;
+  min-height: 90vh;
 
   .item-image {
-    margin-left: 30%;
+    margin: 0 0 0 20%;
     img {
-      height: 350px;
+      height: 30vw;
     }
   }
 
@@ -33,6 +34,12 @@
       font-size: 1.5rem;
       font-weight: bold;
       margin-top: 20px;
+    }
+    .item-description-label {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 20px 0;
+      text-decoration: underline;
     }
     .item-options {
       .item-option {

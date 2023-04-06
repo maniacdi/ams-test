@@ -5,6 +5,8 @@ import Home from './pages/homepage/Home';
 import Login from './pages/login/Login';
 import ItemList from './pages/itemList/ItemList';
 import ItemDetail from './pages/itemDetail/ItemDetail';
+import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -22,11 +24,13 @@ const App = () => {
   return (
     <Router>
       <Header handleLogout={handleLogout} />
+      <Breadcrumbs />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/items' element={<ItemList />} />
+        <Route path='/products' element={<ItemList />} />
         <Route path='/item/:id' element={<ItemDetail />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
