@@ -11,11 +11,13 @@ const Breadcrumbs = () => {
   const { product } = useItem(itemId);
   const getBreadcrumbs = () => {
     const pathnames = pathname.split('/').filter((x) => x);
-    const breadcrumbs = [{ title: 'Home', path: '/' }];
+    const breadcrumbs = [];
 
-    if (pathnames.length === 0) {
+    if (pathnames.length === 0 || pathname === '/') {
       return breadcrumbs;
     }
+
+    breadcrumbs.push({ title: 'Home', path: '/' });
 
     if (pathnames.length === 1) {
       breadcrumbs.push({ title: 'Products', path: '/products' });

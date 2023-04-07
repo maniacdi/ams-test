@@ -61,7 +61,6 @@ const ItemList = () => {
     setSortType(e.target.value);
     setCurrentPage(1);
   };
-  // console.log(products);
   return (
     <div className='item-list-page'>
       <div className='item-filter'>

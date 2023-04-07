@@ -8,10 +8,10 @@ const Footer = () => {
       <h3>Esperamos volver a verte</h3>
       <p>Visita nuestras redes</p>
       <div className='icons'>
-        <a href='https://twitter.com'>
+        <a href='https://twitter.com' target='_blank' rel='noreferrer'>
           <BsTwitter className='twitter icon' />
         </a>
-        <a href='https://www.instagram.com'>
+        <a href='https://www.instagram.com' target='_blank' rel='noreferrer'>
           <BsInstagram className='instagram icon' />
         </a>
       </div>
