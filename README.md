@@ -1,6 +1,6 @@
-# AMS Front end test
+# AMS e-commerce
 
-Project to develop AMS front end test about an e-commerce
+Front end e-commerce test
 
 ## Available Scripts
 
@@ -22,7 +22,7 @@ Launches the test runner in the interactive watch mode
 
 ### `npm lint`
 
-Launches the test runner in the interactive watch mode
+Launches the linting tool configured in your project. This tool checks your code for potential errors, stylistic inconsistencies, and other issues that can be caught automatically.
 
 ## `Aditional notes`
 

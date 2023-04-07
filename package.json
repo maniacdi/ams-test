@@ -12,7 +12,6 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
@@ -23,8 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "react-scripts lint"
+    "lint": "npx eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -45,7 +43,10 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-plugin-react": "^7.32.2",
     "jest": "^27.5.1",
-    "node-sass": "^7.0.3"
+    "node-sass": "^7.0.3",
+    "react-scripts": "^5.0.1"
   }
 }
