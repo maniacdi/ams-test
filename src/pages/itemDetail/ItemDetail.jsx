@@ -3,13 +3,12 @@ import { useParams } from 'react-router-dom';
 import useItem from '../../hooks/useItem';
 import './ItemDetail.scss';
 
-const ItemDetail = () => {
+const ItemDetail = ({ addToCart }) => {
   const { id } = useParams();
   const { product, loading, error } = useItem(id);
 
   const [selectedStorage, setSelectedStorage] = useState([]);
   const [selectedColor, setSelectedColor] = useState([]);
-
   const handleStorageChange = (event) => {
     const selectedStorageCode = parseInt(event.target.value);
     const selectedStorageOption = product.options.storages.find(
@@ -27,7 +26,7 @@ const ItemDetail = () => {
   };
 
   const handleAddToCart = () => {
-    // Make API call to add product to cart
+    addToCart(product, selectedColor, selectedStorage);
   };
   useEffect(() => {
     if (product) {
@@ -63,15 +62,21 @@ const ItemDetail = () => {
         {product.battery && (
           <div className='item-battery'>Battery: {product.battery} </div>
         )}
-        {product.primaryCamera && (
+        {Array.isArray(product.primaryCamera) &&
+        product.primaryCamera.length > 0 ? (
           <div className='item-cameras'>
-            Camera:{' '}
+            Secondary camera:{' '}
             {product.primaryCamera.map((camera, index) => (
               <span key={index}>
                 {camera}
                 {index !== product.primaryCamera.length - 1 && ', '}
               </span>
             ))}
+          </div>
+        ) : (
+          <div className='item-cameras'>
+            Secondary camera:{' '}
+            {product.secondaryCmera && <span>{product.secondaryCmera}</span>}
           </div>
         )}
         {Array.isArray(product.secondaryCmera) &&

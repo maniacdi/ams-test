@@ -1,13 +1,22 @@
 @import '/styles/variables.scss';
 .item-list-page {
-  margin: 180px 5%;
+  margin: 100px 5%;
   min-height: 90vh;
+  @media screen and (max-width: 600px) {
+    margin: 80px 5%;
+  }
   .item-filter {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
     margin: 0 5%;
+    @media screen and (max-width: 600px) {
+      flex-direction: column-reverse;
+      .item-search {
+        margin-bottom: 1rem;
+      }
+    }
     .item-search {
       margin-right: 1rem;
     }

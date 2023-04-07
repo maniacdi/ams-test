@@ -4,11 +4,9 @@ import { FiLogOut } from 'react-icons/fi';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
 import Breadcrumbs from '../breadcrumbs/Breadcrumbs';
-
-const Header = ({ handleLogout }) => {
+const Header = ({ handleLogout, cartCount }) => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState('');
-
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location]);
@@ -34,7 +32,10 @@ const Header = ({ handleLogout }) => {
           </li>
         </ul>
         <div className='header_right'>
-          <FaShoppingCart className='header-link icon cart' title='cart' />
+          <Link to='/cart'>
+            <FaShoppingCart className='header-link icon cart' title='cart' />
+            <div className='cart-count'> {cartCount}</div>
+          </Link>
           <span onClick={handleLogout} className='header-link' title='logout'>
             <FiLogOut className='header-link icon logout' />
           </span>
