@@ -42,7 +42,6 @@ const ItemDetail = () => {
   if (error) {
     return <div className='item-detail-page'>Error: {error}</div>;
   }
-  console.log(product);
   return (
     <div className='item-detail-page' data-testid='item-detail'>
       <div className='item-image'>

@@ -1,12 +1,17 @@
 @import 'styles/variables';
 .breadcrumbs {
-  margin: 120px 5% 0;
+  margin-left: 5%;
+  padding-bottom: 10px;
   display: flex;
   a {
     color: $primary-color;
     text-decoration: none;
   }
+
   .breadcrumbs-greater {
     margin: 0 5px;
+  }
+  @media screen and (max-width: 600px) {
+    padding-top: 20px;
   }
 }

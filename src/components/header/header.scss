@@ -1,93 +1,131 @@
 @import 'styles/variables';
+
 .header {
-  background-color: $backgrounds;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  .header__logo {
-    position: absolute;
-    left: 25px;
-    width: max-content;
-    height: auto;
-    color: $primary-color;
-  }
-  .header__list {
+
+  .header-navBar {
+    background-color: $backgrounds;
+    position: relative;
+    height: 80px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    height: 80px;
-    .header__item {
-      margin-right: 1rem;
+    .header-logo {
+      position: absolute;
+      left: 25px;
+      top: 20%;
+      transform: translateY(-50%);
+      width: max-content;
+      height: auto;
+      color: $primary-color;
+    }
 
-      a {
-        color: $white-color;
-        text-decoration: none;
-        position: relative;
+    .header-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
 
-        &:hover {
+      .header-item {
+        margin-right: 1rem;
+
+        a {
+          color: $white-color;
+          text-decoration: none;
+          position: relative;
+
+          &:hover {
+            color: $primary-color;
+
+            &::before {
+              width: 100%;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: $primary-color;
+            transition: width 0.3s ease;
+          }
+        }
+
+        &.active a {
           color: $primary-color;
-
           &::before {
             width: 100%;
           }
         }
-
-        &::before {
-          content: '';
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0%;
-          height: 2px;
-          background-color: $primary-color;
-          transition: width 0.3s ease;
-        }
       }
+    }
 
-      &.active a {
+    .header_right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 35px;
+
+      .icon {
+        height: 20px;
+        width: 20px;
         color: $primary-color;
-        &::before {
-          width: 100%;
-        }
+        cursor: pointer;
+      }
+
+      .logout {
+        margin-left: 15px;
       }
     }
-  }
-  .header_right {
-    position: absolute;
-    top: 35px;
-    right: 35px;
-    .icon {
-      height: 20px;
-      width: 20px;
-      color: $primary-color;
-      cursor: pointer;
-    }
-    .logout {
-      margin-left: 15px;
-    }
-  }
-  @media screen and (max-width: 600px) {
-    .header__list {
+
+    @media screen and (max-width: 600px) {
       height: auto;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 65px;
-      .header__item {
-        margin-right: 0;
-        margin-bottom: 1rem;
-        &:first-child {
-          display: none;
-        }
-        a {
-          display: block;
-          padding: 0.5rem;
+
+      .header-logo {
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .header-list {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 65px;
+        height: auto;
+
+        .header-item {
+          margin-right: 0;
+          margin-bottom: 1rem;
+
+          &:first-child {
+            display: none;
+          }
+
+          a {
+            display: block;
+            padding: 0.5rem;
+          }
         }
       }
+
+      .header_right {
+        top: 100%;
+        right: 43%;
+        transform: translateY(-50%);
+        margin-right: 15px;
+      }
     }
+  }
+
+  .header-breadcrumbs {
+    background-color: $white-color;
   }
 }
