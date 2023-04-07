@@ -65,7 +65,12 @@ const ItemList = () => {
       <div className='item-filter'>
         <div className='sort-dropdown'>
           <label htmlFor='sort'>Sort by:</label>
-          <select id='sort' value={sortType} onChange={handleSortChange}>
+          <select
+            id='sort'
+            value={sortType}
+            onChange={handleSortChange}
+            title='sorter'
+          >
             <option value='relevance'>Relevance</option>
             <option value='price-high-to-low'>Price: High to Low</option>
             <option value='price-low-to-high'>Price: Low to High</option>
@@ -75,7 +80,7 @@ const ItemList = () => {
           <Search handleSearch={handleSearch} />
         </div>
       </div>
-      <div className='item-list'>
+      <div className='item-list' data-testid='item-list-test'>
         {currentItems.map((product) => (
           <div className='item-wrapper' key={product.id}>
             <Item
@@ -100,6 +105,7 @@ const ItemList = () => {
                 key={index}
                 className={currentPage === index + 1 ? 'active' : ''}
                 onClick={() => handlePageChange(index + 1)}
+                name={index}
               >
                 {index + 1}
               </button>
