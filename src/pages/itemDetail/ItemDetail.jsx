@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useItem from '../../hooks/useItem';
+import { useDispatch } from 'react-redux';
+import useCart from '../../hooks/useCart';
 import './ItemDetail.scss';
 
-const ItemDetail = ({ addToCart }) => {
+const ItemDetail = () => {
   const { id } = useParams();
   const { product, loading, error } = useItem(id);
-
+  const dispatch = useDispatch();
   const [selectedStorage, setSelectedStorage] = useState([]);
   const [selectedColor, setSelectedColor] = useState([]);
+  const [addToCart] = useCart();
   const handleStorageChange = (event) => {
     const selectedStorageCode = parseInt(event.target.value);
     const selectedStorageOption = product.options.storages.find(
@@ -27,6 +30,7 @@ const ItemDetail = ({ addToCart }) => {
 
   const handleAddToCart = () => {
     addToCart(product, selectedColor, selectedStorage);
+    dispatch({ type: 'ADD_TO_CART' });
   };
   useEffect(() => {
     if (product) {

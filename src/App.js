@@ -6,7 +6,7 @@ import Login from './pages/login/Login';
 import ItemList from './pages/itemList/ItemList';
 import ItemDetail from './pages/itemDetail/ItemDetail';
 import Footer from './components/footer/Footer';
-import useCart from './hooks/useCart';
+
 import './App.scss';
 
 const App = () => {
@@ -19,26 +19,18 @@ const App = () => {
     setIsLoggedIn(false);
   };
 
-  const [addToCart, getCartCountFromCache, cartCount] = useCart();
-  useEffect(() => {
-    console.log(getCartCountFromCache(), cartCount);
-  });
-
   if (isLoggedIn === false) {
     return <Login handleLogin={handleLogin} />;
   }
 
   return (
     <Router>
-      <Header handleLogout={handleLogout} cartCount={getCartCountFromCache()} />
+      <Header handleLogout={handleLogout} />
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/products' element={<ItemList addToCart={addToCart} />} />
-        <Route
-          path='/item/:id'
-          element={<ItemDetail addToCart={addToCart} />}
-        />
+        <Route path='/products' element={<ItemList />} />
+        <Route path='/item/:id' element={<ItemDetail />} />
       </Routes>
 
       <Footer />
