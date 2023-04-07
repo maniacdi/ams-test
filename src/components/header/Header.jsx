@@ -4,10 +4,10 @@ import { FiLogOut } from 'react-icons/fi';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
 import Breadcrumbs from '../breadcrumbs/Breadcrumbs';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 
 const Header = ({ handleLogout }) => {
-  const count = useSelector((state) => state.cart.count);
+  const count = useSelector((state) => state.cart.count, shallowEqual);
   const location = useLocation();
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {

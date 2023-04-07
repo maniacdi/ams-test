@@ -6,7 +6,6 @@ import Login from './pages/login/Login';
 import ItemList from './pages/itemList/ItemList';
 import ItemDetail from './pages/itemDetail/ItemDetail';
 import Footer from './components/footer/Footer';
-
 import './App.scss';
 
 const App = () => {
@@ -26,13 +25,11 @@ const App = () => {
   return (
     <Router>
       <Header handleLogout={handleLogout} />
-
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ItemList />} />
         <Route path='/item/:id' element={<ItemDetail />} />
       </Routes>
-
       <Footer />
     </Router>
   );
