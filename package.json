@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "prettier": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +48,7 @@
     "eslint-plugin-react": "^7.32.2",
     "jest": "^27.5.1",
     "node-sass": "^7.0.3",
+    "prettier": "^2.8.7",
     "react-scripts": "^5.0.1"
   }
 }

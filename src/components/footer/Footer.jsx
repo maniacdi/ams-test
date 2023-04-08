@@ -1,3 +1,4 @@
+import React from 'react';
 import { BsTwitter } from 'react-icons/bs';
 import { BsInstagram } from 'react-icons/bs';
 import './Footer.scss';

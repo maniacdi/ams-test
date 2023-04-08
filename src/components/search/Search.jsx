@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 import './Search.scss';
+
+// eslint-disable-next-line react/prop-types
 const Search = ({ handleSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 

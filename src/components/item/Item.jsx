@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Item.scss';
 
+// eslint-disable-next-line react/prop-types
 const Item = ({ id, brand, model, price, imgUrl }) => {
   return (
     <div className='item'>

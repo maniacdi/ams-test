@@ -6,6 +6,7 @@ import './Header.scss';
 import Breadcrumbs from '../breadcrumbs/Breadcrumbs';
 import { useSelector, shallowEqual } from 'react-redux';
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ handleLogout }) => {
   const count = useSelector((state) => state.cart.count, shallowEqual);
   const location = useLocation();

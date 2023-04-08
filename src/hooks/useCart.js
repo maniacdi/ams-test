@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const useCart = () => {
   const [cartCount, setCartCount] = useState(0);
 
   const getCartCountFromCache = () => {
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
 
     const filteredData = cartData.filter((item) => {
       return new Date().getTime() - item.time <= 3600000;
@@ -33,7 +33,7 @@ const useCart = () => {
       setCartCount(response.data.count);
 
       // Get existing cart data from cache or create new array
-      const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+      const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
 
       // Add new item to cart data array
       const newItem = {
@@ -43,7 +43,7 @@ const useCart = () => {
       cartData.push(newItem);
 
       // Save updated cart data to local storage
-      localStorage.setItem('cartData', JSON.stringify(cartData));
+      localStorage.setItem("cartData", JSON.stringify(cartData));
     } catch (error) {
       console.error(error);
     }
@@ -51,11 +51,12 @@ const useCart = () => {
 
   useEffect(() => {
     // Check if there is cached data
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const HOURS = 1;
 
     // Filter out data that is older than 1 hour
     const filteredData = cartData.filter((item) => {
-      return new Date().getTime() - item.time <= 3600000;
+      return new Date().getTime() - item.time <= HOURS * 3600000;
     });
 
     // Update cart count state
@@ -65,7 +66,7 @@ const useCart = () => {
     setCartCount(cartCount);
 
     // Save filtered data to local storage
-    localStorage.setItem('cartData', JSON.stringify(filteredData));
+    localStorage.setItem("cartData", JSON.stringify(filteredData));
   }, []);
 
   return [addToCart, getCartCountFromCache, cartCount];

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.scss';
 
+// eslint-disable-next-line react/prop-types
 const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
