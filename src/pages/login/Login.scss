@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .login {
   display: flex;
@@ -7,12 +7,12 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background-color: $primary-color;
+  background-color: $backgrounds;
 
   h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    color: $secondary-color;
+    color: $primary-color;
   }
 
   form {
@@ -27,7 +27,7 @@
   label {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: $secondary-color;
+    color: $primary-color;
   }
 
   input {
@@ -40,8 +40,8 @@
     margin-top: 5px;
   }
 
-  button[type='submit'] {
-    background-color: $secondary-color;
+  button[type="submit"] {
+    background-color: $primary-color;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -50,8 +50,8 @@
     cursor: pointer;
   }
 
-  button[type='submit']:hover {
-    background-color: $secondary-color;
+  button[type="submit"]:hover {
+    background-color: $primary-color;
   }
 
   input:focus,
