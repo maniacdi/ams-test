@@ -1,9 +1,9 @@
-import React from 'react';
-import './Home.scss';
+import React from "react";
+import "./Home.scss";
 const Home = () => {
   return (
-    <div className='home' data-testid='home'>
-      <h2>Bienvenido a la pruebade un e-commerce de AMS realizada por Javi</h2>
+    <div className="home" data-testid="home">
+      <h2>Bienvenido a la prueba de un e-commerce de AMS realizada por Javi</h2>
       <span>
         Estas en la página principal, usa el menu para moverte entre las
         distinstas secciones de la página.

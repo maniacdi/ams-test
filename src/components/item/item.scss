@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 .item {
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   background-color: #f7f7f7;
   border-radius: 5px;
   &:hover {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
   }
   a {
     text-decoration: none;
@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $primary-color;
+    color: $black-color;
     .brand {
       font-weight: bold;
       font-size: 1.2rem;
@@ -34,15 +34,16 @@
     .model {
       font-size: 1rem;
       margin-bottom: 5px;
+      color: $primary-color;
     }
 
     .price {
       font-size: 1.2rem;
-      color: #3d3d3d;
-      margin-top: 10px;
 
+      margin-top: 10px;
+      font-weight: bold;
       &:before {
-        content: '€';
+        content: "€";
         margin-right: 5px;
       }
     }
