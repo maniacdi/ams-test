@@ -22,7 +22,7 @@ Launches the test runner in the interactive watch mode
 
 ## `npx cypress open`
 
-Launches cypress wizard to follow some e2e tests.
+Launches cypress wizard to follow some e2e tests. In order to run this test you should run npm start first.
 
 ### `npm lint`
 

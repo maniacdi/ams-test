@@ -63,7 +63,7 @@ const ItemList = () => {
   return (
     <div className="item-list-page" data-testid="item-list-test">
       <div className="item-filter">
-        <div className="sort-dropdown">
+        <div className="sort-dropdown" data-testid="sort-dropdown">
           <label htmlFor="sort">Sort by:</label>
           <select
             id="sort"
@@ -76,7 +76,7 @@ const ItemList = () => {
             <option value="price-low-to-high">Price: Low to High</option>
           </select>
         </div>
-        <div className="item-search">
+        <div className="item-search" data-testid="item-search">
           <Search handleSearch={handleSearch} />
         </div>
       </div>
@@ -97,7 +97,7 @@ const ItemList = () => {
           </div>
         ))}
       </div>
-      <div className="pagination">
+      <div className="pagination" data-testid="pagination">
         {Array.from({ length: totalPages }).map((_, index) => {
           if (
             index === 0 ||
