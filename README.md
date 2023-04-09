@@ -20,6 +20,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Launches the test runner in the interactive watch mode
 
+## `npx cypress open`
+
+Launches cypress wizard to follow some e2e tests.
+
 ### `npm lint`
 
 Launches the linting tool configured in your project. This tool checks your code for potential errors, stylistic inconsistencies, and other issues that can be caught automatically.

@@ -38,7 +38,11 @@ const Header = ({ handleLogout }) => {
         <div className="header_right">
           <span>
             <FaShoppingCart className="header-link icon cart" title="cart" />
-            {count !== 0 && <div className="cart-count"> {count}</div>}
+            {count !== 0 && (
+              <div className="cart-count" data-testid="cart-count">
+                {count}
+              </div>
+            )}
           </span>
           <span onClick={handleLogout} className="header-link" title="logout">
             <FiLogOut className="header-link icon logout" />
