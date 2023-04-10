@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+/* Custom hoook to get the information about a product*/
 
 const useItem = (id) => {
   const [product, setProduct] = useState(null);

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+/* Custom hoook to get the products list*/
 
 const useItems = () => {
   const [products, setProducts] = useState([]);

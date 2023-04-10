@@ -4,12 +4,17 @@ import Search from "../../components/search/Search";
 import Item from "../../components/item/Item";
 import "./ItemList.scss";
 
+/* Component that is the page where the list of products are shown*/
+
 const ItemList = () => {
   const { products, loading, error } = useItems();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [sortType, setSortType] = useState("relevance");
+
+  // function to manage the search input
+
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
     setCurrentPage(1);

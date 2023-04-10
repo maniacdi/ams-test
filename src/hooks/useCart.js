@@ -3,19 +3,24 @@ import axios from "axios";
 
 const useCart = () => {
   const [cartCount, setCartCount] = useState(0);
-
+  const HOURS = 1;
   const getCartCountFromCache = () => {
     const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-
     const filteredData = cartData.filter((item) => {
-      return new Date().getTime() - item.time <= 3600000;
+      return new Date().getTime() - item.time <= HOURS * 3600000;
     });
-
     const cartCount = filteredData.reduce((total, item) => {
       return total + item.count;
     }, 0);
-
     return cartCount;
+  };
+
+  const removeExpiredItems = () => {
+    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const filteredData = cartData.filter((item) => {
+      return new Date().getTime() - item.time <= HOURS * 3600000;
+    });
+    localStorage.setItem("cartData", JSON.stringify(filteredData));
   };
 
   const addToCart = async (product, selectedColor, selectedStorage) => {
@@ -50,22 +55,15 @@ const useCart = () => {
   };
 
   useEffect(() => {
-    // Check if there is cached data
     const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-    const HOURS = 1;
-
-    // Filter out data that is older than 1 hour
     const filteredData = cartData.filter((item) => {
       return new Date().getTime() - item.time <= HOURS * 3600000;
     });
-
-    // Update cart count state
+    removeExpiredItems();
     const cartCount = filteredData.reduce((total, item) => {
       return total + item.count;
     }, 0);
     setCartCount(cartCount);
-
-    // Save filtered data to local storage
     localStorage.setItem("cartData", JSON.stringify(filteredData));
   }, []);
 

@@ -4,6 +4,8 @@ import useItem from "../../hooks/useItem";
 import useCart from "../../hooks/useCart";
 import { useDispatch } from "react-redux";
 import "./ItemDetail.scss";
+/* Component that is the product detailpage of the site*/
+
 const ItemDetail = () => {
   const { id } = useParams();
   const { product, loading, error } = useItem(id);
@@ -11,6 +13,9 @@ const ItemDetail = () => {
   const [selectedColor, setSelectedColor] = useState([]);
   const [addToCart] = useCart();
   const dispatch = useDispatch();
+
+  /* function to manage the storage change selector event*/
+
   const handleStorageChange = (event) => {
     const selectedStorageCode = parseInt(event.target.value);
     const selectedStorageOption = product.options.storages.find(
@@ -18,6 +23,7 @@ const ItemDetail = () => {
     );
     setSelectedStorage(selectedStorageOption);
   };
+  /* function to manage the color change selector event*/
 
   const handleColorChange = (event) => {
     const selectedColorCode = parseInt(event.target.value);
@@ -26,17 +32,20 @@ const ItemDetail = () => {
     );
     setSelectedColor(selectedColorOption);
   };
+  /* function to add the product to the cart*/
 
   const handleAddToCart = () => {
     addToCart(product, selectedColor, selectedStorage);
     dispatch({ type: "ADD_TO_CART" });
   };
+
   useEffect(() => {
     if (product) {
       setSelectedStorage(product.options.storages.map((option) => option));
       setSelectedColor(product.options.colors.map((option) => option));
     }
   }, [product]);
+
   if (loading) {
     return <div className="item-detail-page">Loading product...</div>;
   }
@@ -44,6 +53,7 @@ const ItemDetail = () => {
   if (error) {
     return <div className="item-detail-page">Error: {error}</div>;
   }
+
   return (
     <div className="item-detail-page" data-testid="item-detail-test">
       <div className="item-image">

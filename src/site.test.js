@@ -4,6 +4,9 @@ import ItemList from "./pages/itemList/ItemList";
 import Search from "./components/search/Search";
 import { Provider } from "react-redux";
 import store from "./store/index";
+
+/* File where the unit tests are located*/
+
 describe("ItemList", () => {
   test("renders Loading test component in list page", () => {
     render(

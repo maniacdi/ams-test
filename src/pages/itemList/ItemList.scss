@@ -34,7 +34,7 @@
         padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
         border: 1px solid #ccc;
-        background-color: #fff;
+        background-color: $white-color;
         font-size: 1rem;
 
         &:focus {
@@ -91,7 +91,7 @@
       padding: 5px 10px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      background-color: white;
+      background-color: $white-color;
       margin: 0 5px;
       font-size: 14px;
       cursor: pointer;
@@ -102,7 +102,7 @@
 
       &.active {
         background-color: $primary-color;
-        color: white;
+        color: $white-color;
         border-color: $primary-color;
       }
     }

@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import { useSelector, shallowEqual } from "react-redux";
+/* Component for the header*/
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ handleLogout }) => {

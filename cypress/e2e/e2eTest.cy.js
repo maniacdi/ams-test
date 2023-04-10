@@ -1,4 +1,5 @@
 describe("Login", () => {
+  //test from the beginning of a session.
   it("navigates and uses the web", () => {
     cy.wait(1000);
     cy.login();

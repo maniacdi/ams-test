@@ -1,5 +1,7 @@
 import React from "react";
 import "./Home.scss";
+/* Component that is the homepage of the site*/
+
 const Home = () => {
   return (
     <div className="home" data-testid="home">

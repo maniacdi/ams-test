@@ -9,7 +9,10 @@ import Footer from "./components/footer/Footer";
 import "./App.scss";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  //functions to manage the login state
+
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
