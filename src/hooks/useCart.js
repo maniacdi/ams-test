@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+/* Custom hoook to manage the cart and add products*/
+
 const useCart = () => {
   const [cartCount, setCartCount] = useState(0);
   const HOURS = 1;
+
+  //Get the amount of items in the cart
   const getCartCountFromCache = () => {
     const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
     const filteredData = cartData.filter((item) => {
@@ -15,6 +19,7 @@ const useCart = () => {
     return cartCount;
   };
 
+  //Remove the items in the cart older than HOURS
   const removeExpiredItems = () => {
     const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
     const filteredData = cartData.filter((item) => {
